@@ -25,6 +25,9 @@ CsrfMiddleware::handle();
 
 // Load routes
 require_once __DIR__ . '/../app/Routes/api.php';
+require_once __DIR__ . '/../app/Middleware/AuthMiddleware.php';
 
 // No route matched
 Response::error('Route not found', 404);
+
+
