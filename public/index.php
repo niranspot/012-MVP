@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Run CSRF check
 CsrfMiddleware::handle();
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 
 // Load routes
 require_once __DIR__ . '/../app/Routes/api.php';
