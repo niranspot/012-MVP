@@ -13,6 +13,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-CSRF-Token');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 require_once __DIR__ . '/../app/Config/config.php';
 require_once __DIR__ . '/../app/Config/constants.php';
 // Handle preflight
@@ -23,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Run CSRF check
 CsrfMiddleware::handle();
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+
 
 // Load routes
 require_once __DIR__ . '/../app/Routes/api.php';
